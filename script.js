@@ -27,9 +27,27 @@ const products = [
 ];
 
 const productList = document.getElementById("product-list");
+const searchInput = document.getElementById("search-input");
+const categoryFilter = document.getElementById("category-filter");
 
 function renderProducts() {
-    productList.innerHTML = products.map(product => `
+    const search = searchInput.value.toLowerCase();
+    const category = categoryFilter.value;
+
+    const filteredProducts = products.filter(product => {
+        const matchesName = product.name.toLowerCase().includes(search);
+        const matchesCategory = category === "todos" ||
+            product.category === category;
+
+        return matchesName && matchesCategory;
+    });
+
+    if (filteredProducts.length === 0) {
+        productList.innerHTML = "<p>Nenhum produto encontrado.</p>";
+        return;
+    }
+
+    productList.innerHTML = filteredProducts.map(product => `
         <article class="product-card">
             <img src="${product.image}" alt="${product.name}">
             <div class="product-info">
@@ -46,5 +64,8 @@ function renderProducts() {
         </article>
     `).join("");
 }
+
+searchInput.addEventListener("input", renderProducts);
+categoryFilter.addEventListener("change", renderProducts);
 
 renderProducts();

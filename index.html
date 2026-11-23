@@ -34,16 +34,32 @@
             </div>
         </section>
 
-        <section id="produtos" class="products">
-            <div class="container">
-                <h2>Nossos produtos</h2>
-                <p>Explore nossa seleção de tecnologia.</p>
+        
+    <section id="produtos" class="products">
+        <div class="container">
+            <h2>Nossos produtos</h2>
+            <p>Explore nossa seleção de tecnologia.</p>
 
-                <div id="product-list">
-                    <!-- Os produtos serão adicionados com JavaScript -->
-                </div>
-            </div>
-        </section>
+        <div class="catalog-controls">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Pesquisar produtos..."
+            >
+
+            <select id="category-filter">
+                <option value="todos">Todas as categorias</option>
+                <option value="Placas de vídeo">Placas de vídeo</option>
+                <option value="Processadores">Processadores</option>
+                <option value="Memórias">Memórias</option>
+                <option value="Armazenamento">Armazenamento</option>
+            </select>
+        </div>
+
+        <div id="product-list"></div>
+    </div>
+</section>
+
 
         <section id="sobre" class="about">
             <div class="container">
