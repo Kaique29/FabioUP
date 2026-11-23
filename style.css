@@ -1,0 +1,168 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --background: #080d18;
+    --surface: #101a2b;
+    --primary: #168cff;
+    --cyan: #00d9ff;
+    --text: #f4f7ff;
+    --muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CABEÇALHO */
+
+header {
+    background: rgba(8, 13, 24, 0.95);
+    border-bottom: 1px solid #1b2b43;
+    padding: 22px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+}
+
+.header-button,
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 6px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.header-button:hover,
+.button:hover {
+    background: var(--cyan);
+    color: #06101d;
+    transform: translateY(-2px);
+}
+
+/* BANNER PRINCIPAL */
+
+.hero {
+    min-height: 490px;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 80% 50%, #10386b55, transparent 55%),
+        linear-gradient(120deg, #080d18, #0c1b32);
+}
+
+.hero .container {
+    padding: 90px 0;
+}
+
+.hero p:first-child {
+    color: var(--cyan);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 1.05;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.hero h1 + p {
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+/* PRODUTOS */
+
+.products {
+    padding: 90px 0;
+}
+
+.products h2,
+.about h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.products .container > p {
+    color: var(--muted);
+    margin-bottom: 35px;
+}
+
+/* SOBRE */
+
+.about {
+    padding: 75px 0;
+    background: var(--surface);
+}
+
+.about p {
+    max-width: 650px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-top: 18px;
+}
+
+/* RODAPÉ */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid #1b2b43;
+    font-size: 13px;
+}
