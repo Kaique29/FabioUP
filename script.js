@@ -10,7 +10,7 @@ const products = [
         name: "Ryzen 7 5700X",
         category: "Processadores",
         price: 1099.90,
-        image: "https://placehold.co/600x400/101a2b/00d9ff?text=Ryzen+7"
+        image: "https://placehold.co/600x400/101a2b/00d9ff?text=Ryzen+7+5700X"
     },
     {
         name: "Memória RAM 16GB DDR4",
@@ -29,6 +29,10 @@ const products = [
 const productList = document.getElementById("product-list");
 const searchInput = document.getElementById("search-input");
 const categoryFilter = document.getElementById("category-filter");
+// CARRINHO DE COMPRAS
+const cart = [];
+const cartCount = document.getElementById("cart-count");
+const cartButton = document.getElementById("cart-button");
 
 function renderProducts() {
     const search = searchInput.value.toLowerCase();
@@ -59,7 +63,9 @@ function renderProducts() {
                         currency: "BRL"
                     })}
                 </strong>
-                <button type="button">Ver produto</button>
+                <button type="button" class="add-to-cart">
+                    Adicionar ao carrinho
+                </button>
             </div>
         </article>
     `).join("");
@@ -69,3 +75,42 @@ searchInput.addEventListener("input", renderProducts);
 categoryFilter.addEventListener("change", renderProducts);
 
 renderProducts();
+
+// ADICIONAR PRODUTOS AO CARRINHO
+productList.addEventListener("click", function(event) {
+    if (event.target.classList.contains("add-to-cart")) {
+        const card = event.target.closest(".product-card");
+        const productName = card.querySelector("h3").textContent;
+
+        const product = products.find(item => item.name === productName);
+
+        if (product) {
+            cart.push(product);
+            cartCount.textContent = cart.length;
+
+            event.target.textContent = "Adicionado!";
+
+            setTimeout(() => {
+                event.target.textContent = "Adicionar ao carrinho";
+            }, 1000);
+        }
+    }
+});
+
+// VISUALIZAR CARRINHO
+cartButton.addEventListener("click", function() {
+    if (cart.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    const total = cart.reduce((sum, product) => sum + product.price, 0);
+
+    alert(
+        "Itens no carrinho: " + cart.length +
+        "\nTotal: " + total.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        })
+    );
+});
