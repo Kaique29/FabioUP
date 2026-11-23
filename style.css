@@ -249,3 +249,94 @@ footer {
     background: var(--cyan);
     color: var(--background);
 }
+
+
+/* PESQUISA NEXUS TECH */
+
+.catalog-controls {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 600px;
+    padding: 0 18px;
+    background: #101a2b;
+    border: 1px solid #263b59;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #00d9ff;
+    box-shadow: 0 0 15px #00d9ff22;
+}
+
+.search-icon {
+    color: #00d9ff;
+    font-size: 25px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 17px 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+}
+
+.search-box input::placeholder {
+    color: #71839e;
+}
+
+/* CATEGORIAS */
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.category-btn {
+    padding: 11px 19px;
+    background: #101a2b;
+    border: 1px solid #263b59;
+    border-radius: 7px;
+    color: #a9bad0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.category-btn:hover {
+    color: #00d9ff;
+    border-color: #00d9ff;
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: #087ee5;
+    border-color: #087ee5;
+    color: white;
+    box-shadow: 0 0 15px #087ee544;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+    .category-buttons {
+        gap: 8px;
+    }
+
+    .category-btn {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+}

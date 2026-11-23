@@ -28,7 +28,9 @@ const products = [
 
 const productList = document.getElementById("product-list");
 const searchInput = document.getElementById("search-input");
-const categoryFilter = document.getElementById("category-filter");
+let selectedCategory = "todos";
+
+const categoryButtons = document.querySelectorAll(".category-btn");
 // CARRINHO DE COMPRAS
 const cart = [];
 const cartCount = document.getElementById("cart-count");
@@ -36,7 +38,7 @@ const cartButton = document.getElementById("cart-button");
 
 function renderProducts() {
     const search = searchInput.value.toLowerCase();
-    const category = categoryFilter.value;
+    const category = selectedCategory;
 
     const filteredProducts = products.filter(product => {
         const matchesName = product.name.toLowerCase().includes(search);
@@ -72,7 +74,19 @@ function renderProducts() {
 }
 
 searchInput.addEventListener("input", renderProducts);
-categoryFilter.addEventListener("change", renderProducts);
+categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        selectedCategory = button.dataset.category;
+
+        categoryButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        renderProducts();
+    });
+});
 
 renderProducts();
 

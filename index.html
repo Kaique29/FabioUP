@@ -43,21 +43,26 @@
             <h2>Nossos produtos</h2>
             <p>Explore nossa seleção de tecnologia.</p>
 
-        <div class="catalog-controls">
-            <input
-                type="text"
-                id="search-input"
-                placeholder="Pesquisar produtos..."
-            >
 
-            <select id="category-filter">
-                <option value="todos">Todas as categorias</option>
-                <option value="Placas de vídeo">Placas de vídeo</option>
-                <option value="Processadores">Processadores</option>
-                <option value="Memórias">Memórias</option>
-                <option value="Armazenamento">Armazenamento</option>
-            </select>
-        </div>
+<div class="catalog-controls">
+    <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input
+            type="text"
+            id="search-input"
+            placeholder="O que você está procurando?"
+        >
+    </div>
+</div>
+
+<div class="category-buttons">
+    <button class="category-btn active" data-category="todos">Todos</button>
+    <button class="category-btn" data-category="Placas de vídeo">Placas de vídeo</button>
+    <button class="category-btn" data-category="Processadores">Processadores</button>
+    <button class="category-btn" data-category="Memórias">Memórias</button>
+    <button class="category-btn" data-category="Armazenamento">Armazenamento</button>
+</div>
+
 
         <div id="product-list"></div>
     </div>
