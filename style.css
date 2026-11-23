@@ -166,3 +166,68 @@ footer {
     border-top: 1px solid #1b2b43;
     font-size: 13px;
 }
+
+
+/* CATÁLOGO DE PRODUTOS */
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--surface);
+    border: 1px solid #1b2b43;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 30px #008cff22;
+}
+
+.product-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info span {
+    color: var(--cyan);
+    font-size: 12px;
+}
+
+.product-info h3 {
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.product-info strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.product-info button {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.product-info button:hover {
+    background: var(--primary);
+}
